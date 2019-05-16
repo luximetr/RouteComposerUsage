@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
 //      self.pushReceived()
-      self.presentPushReceived()
+//      self.presentPushReceived()
     })
     
     return true
