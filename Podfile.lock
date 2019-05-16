@@ -1,0 +1,24 @@
+PODS:
+  - LGSideMenuController (2.1.1)
+  - RouteComposer (1.5.4)
+  - SnapKit (5.0.0)
+
+DEPENDENCIES:
+  - LGSideMenuController
+  - RouteComposer (~> 1.4)
+  - SnapKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - LGSideMenuController
+    - RouteComposer
+    - SnapKit
+
+SPEC CHECKSUMS:
+  LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
+  RouteComposer: 90eed08bd5eff959fc25a30b75a83f6f0f0229c9
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+
+PODFILE CHECKSUM: d58029111b78d257d8011d9fd81c9bdffe9354a3
+
+COCOAPODS: 1.6.1

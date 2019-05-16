@@ -1,0 +1,46 @@
+//
+//  NamedTabBarControllerFactory.swift
+//  RouteComposerUsage
+//
+//  Created by branderstudio on 5/11/19.
+//  Copyright © 2019 branderstudio. All rights reserved.
+//
+
+import Foundation
+import RouteComposer
+
+struct NamedTabBarControllerFactory<TBC: UITabBarController, C>: SimpleContainerFactory {
+  
+  typealias ViewController = TBC
+  
+  typealias Context = C
+  
+  /// `UITabBarControllerDelegate` reference
+  private(set) public weak var delegate: UITabBarControllerDelegate?
+  
+  /// Block to configure `UITabBarController`
+  public let configuration: ((_: UITabBarController) -> Void)?
+  
+  /// Constructor
+  public init(delegate: UITabBarControllerDelegate? = nil,
+              configuration: ((_: UITabBarController) -> Void)? = nil) {
+    self.delegate = delegate
+    self.configuration = configuration
+  }
+  
+  func build(with context: C, integrating viewControllers: [UIViewController]) throws -> TBC {
+    guard !viewControllers.isEmpty else {
+      throw RoutingError.compositionFailed(.init("Unable to build UITabBarController due " +
+        "to 0 amount of the children view controllers"))
+    }
+    let tabBarController = TBC()
+    if let delegate = delegate {
+      tabBarController.delegate = delegate
+    }
+    if let configuration = configuration {
+      configuration(tabBarController)
+    }
+    tabBarController.viewControllers = viewControllers
+    return tabBarController
+  }
+}

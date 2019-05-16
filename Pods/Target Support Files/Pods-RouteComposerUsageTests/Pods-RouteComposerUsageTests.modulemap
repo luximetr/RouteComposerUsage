@@ -1,0 +1,6 @@
+framework module Pods_RouteComposerUsageTests {
+  umbrella header "Pods-RouteComposerUsageTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
